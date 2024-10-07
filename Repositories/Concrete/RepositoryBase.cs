@@ -2,6 +2,8 @@
 
 using System.Linq.Expressions;
 using Entities.Contracts;
+using Microsoft.EntityFrameworkCore;
+using Repositories.Common;
 using Repositories.Contracts;
 
 namespace Repositories.Concrete
@@ -9,29 +11,31 @@ namespace Repositories.Concrete
     public class RepositoryBase<TEntity> : IRepositoryBase<TEntity>
     where TEntity : class, IEntity, new()
     {
-        public void Create(TEntity entity)
+        protected readonly RepositoryContext _context;
+
+        protected RepositoryBase(RepositoryContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
+        public void Create(TEntity entity) 
+        => _context.Set<TEntity>().Add(entity);
 
         public void Delete(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
+        => _context.Set<TEntity>().Remove(entity);
 
         public IQueryable<TEntity> FindAll(bool tracking)
         {
-            throw new NotImplementedException();
+            return tracking ? _context.Set<TEntity>() : _context.Set<TEntity>().AsNoTracking();
         }
 
         public TEntity? FindByCondition(Expression<Func<TEntity, bool>> expression, bool tracking)
         {
-            throw new NotImplementedException();
+             return tracking 
+             ? _context.Set<TEntity>().Where(expression).SingleOrDefault() 
+             : _context.Set<TEntity>().Where(expression).AsNoTracking().SingleOrDefault();
         }
 
         public void Update(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
+        => _context.Set<TEntity>().Update(entity);
     }
 }
