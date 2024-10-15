@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="~/css/account-styles.css">
+    <title>Account Page</title>
+</head>
+<body style="background: linear-gradient(to right, #30a34d, #1565c0)" >
+   <div class="container-fluid">
+    <div style="height: 100vh;" class="row d-flex justify-content-center align-items-center">
+         @RenderBody()  
+    </div>
+   </div> 
+
+   <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+   <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+   <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+   @await RenderSectionAsync("Scripts", false)
+</body>
+</html>

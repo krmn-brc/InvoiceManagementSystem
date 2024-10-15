@@ -7,7 +7,7 @@ namespace Repositories.Concrete
 {
     public class InvoiceRepository : RepositoryBase<Invoice>, IInvoiceRepository
     {
-        protected InvoiceRepository(RepositoryContext context) : base(context)
+        public InvoiceRepository(RepositoryContext context) : base(context)
         {
         }
     }

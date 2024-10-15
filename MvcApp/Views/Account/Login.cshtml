@@ -1,0 +1,43 @@
+@model MvcApp.Models.LoginModel
+@{
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+
+<div class="col-md-3">
+    <div class="card bg-body-tertiary rounded-3 shadow-lg">
+        <div class="card-header w-100 text-muted text-center">
+            <h4>Sistem Giriş Sayfası</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="Login" asp-controller="Account">
+                <div class="form-group">
+                    <label asp-for="UserNameOrEmail">Kullanıcı Adı veya E-Mail:</label> <br />
+                    <input class="form-control" asp-for="UserNameOrEmail" />
+                </div>
+                <div class="form-group my-3 form-group-pass">
+                    <label asp-for="Password">Şifre:</label><br />
+                    <input class="form-control" type="password" id="password" asp-for="Password" />
+                    <i id="pass-icon" class="fas fa-eye"></i>
+                </div>
+
+                <button class="btn btn-success w-100" type="submit">Giriş Yap</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const password = document.querySelector("#password")
+        const passIcon = document.querySelector("#pass-icon")
+        passIcon.addEventListener('click', (e) => {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // toggle the eye slash icon
+            const className = e.target.getAttribute('class') === 'fas fa-eye' ? 'fas fa-eye-slash' : 'fas fa-eye';
+            e.target.setAttribute('class', className);
+
+        })
+    </script>
+}

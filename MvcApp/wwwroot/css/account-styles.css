@@ -1,0 +1,8 @@
+.form-group-pass{
+     position: relative;
+}
+.form-group-pass i{
+     position: absolute;
+     top: 56%;
+     right: 5%;
+}

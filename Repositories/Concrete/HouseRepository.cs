@@ -7,7 +7,7 @@ namespace Repositories.Concrete
 {
     public class HouseRepository : RepositoryBase<House>, IHouseRepository
     {
-        protected HouseRepository(RepositoryContext context) : base(context)
+        public HouseRepository(RepositoryContext context) : base(context)
         {
         }
     }

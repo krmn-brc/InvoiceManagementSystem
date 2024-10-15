@@ -1,15 +1,16 @@
-using System.Diagnostics;
+using Entities.Models.Identities;
 using Microsoft.AspNetCore.Mvc;
-using MvcApp.Models;
 
 namespace MvcApp.Controllers;
 
 public class HomeController : Controller
 {
-   
+
+    
     public IActionResult Index()
-    {
-        return View();
-    }
+        {
+            return View();
+        }
+
     
 }

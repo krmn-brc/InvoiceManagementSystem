@@ -10,7 +10,7 @@ namespace Repositories.Concrete
 {
     public class InvoiceTypeRepository : RepositoryBase<InvoiceType>, IInvoiceTypeRepository
     {
-        protected InvoiceTypeRepository(RepositoryContext context) : base(context)
+        public InvoiceTypeRepository(RepositoryContext context) : base(context)
         {
         }
     }

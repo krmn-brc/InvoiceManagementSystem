@@ -7,7 +7,7 @@ namespace Repositories.Concrete
 {
     public class BlockRepository : RepositoryBase<Block>, IBlockRepository
     {
-        protected BlockRepository(RepositoryContext context) : base(context)
+        public BlockRepository(RepositoryContext context) : base(context)
         {
             
         }
